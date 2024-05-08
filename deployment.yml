@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: flask-helm-app
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: flask-helm-app
+  template:
+    metadata:
+      labels:
+        app: flask-helm-app
+    spec:
+      containers:
+        - name: flask-helm-app
+          image: flask-helm-app:latest
+          ports:
+            - containerPort: 5000
